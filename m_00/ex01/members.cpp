@@ -30,6 +30,15 @@ std::string Contact::getPhoneNumber()const {
     return phone_number;
 }
 
+void Contact::displayContact()const
+{
+    std::cout << "First Name: " + first_name << std::endl;
+    std::cout << "Last Name: " + last_name << std::endl;
+    std::cout << "Nick Name: " + nick_name << std::endl;
+    std::cout << "Phone Number: " + phone_number << std::endl;
+    std::cout << "darkest Secret: " + secret << std::endl;
+}
+
 void PhoneBook::setContact(Contact c) {
     contacts[index % 8] = c;
     if (size < 8)

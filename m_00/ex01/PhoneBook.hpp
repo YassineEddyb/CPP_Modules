@@ -21,6 +21,7 @@ class Contact {
         std::string getNickName() const;
         std::string getSecret() const;
         std::string getPhoneNumber() const;
+        void displayContact() const;
 };
 
 class PhoneBook {
