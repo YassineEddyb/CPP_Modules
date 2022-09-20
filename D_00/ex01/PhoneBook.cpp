@@ -32,3 +32,7 @@ void PhoneBook::displayPhonebook() const {
         i++;
     }
 }
+
+size_t PhoneBook::getSize() const {
+    return size;
+}

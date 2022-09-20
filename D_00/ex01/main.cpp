@@ -57,6 +57,11 @@ int main () {
         }
         else if (command == "SEARCH")
         {
+            if (pb.getSize() <= 0)
+            {
+                std::cout << "PhoneBook is Empty"<< std::endl;
+                continue ;
+            }
             pb.displayPhonebook();
             while(42)
             {
@@ -69,6 +74,11 @@ int main () {
                         std::cout << "Index is out of range" << std::endl;
                     else
                     {
+                        if (idx >= (int)pb.getSize())
+                        {
+                            std::cout << "Index not valid" << std::endl;
+                            continue ;
+                        }
                         pb.getContact(idx).displayContact();
                         break ;
                     }

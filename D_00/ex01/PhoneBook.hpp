@@ -17,6 +17,7 @@ class PhoneBook {
         void setContact(Contact c);
         Contact getContact(int index) const;
         void displayPhonebook() const;
+        size_t getSize() const;
 };
 
 std::string truncate_string(std::string str);
