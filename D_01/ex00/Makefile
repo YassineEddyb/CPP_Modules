@@ -1,7 +1,7 @@
-SRC = PhoneBook.cpp members.cpp
+SRC = megaphone.cpp
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = c++
-NAME = PhoneBook
+NAME = megaphone
 
 all: $(NAME)
 
