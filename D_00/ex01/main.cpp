@@ -37,7 +37,7 @@ int main () {
     while(1337)
     {
         std::cout << "Enter Command: "; getline(std::cin, command);
-        if (command == "")
+        if (std::cin.eof())
             exit(0);
         if (command == "ADD")
         {
@@ -66,7 +66,7 @@ int main () {
             while(42)
             {
                 std::cout << "Enter Contact Index From More Details: "; getline(std::cin, index);
-                if (index == "")
+                if (std::cin.eof())
                     exit(0);
                 try {
                     int idx = std::stoi(index);
