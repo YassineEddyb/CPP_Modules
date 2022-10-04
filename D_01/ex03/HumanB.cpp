@@ -5,7 +5,8 @@ void HumanB::setWeapon(Weapon &w) {
 }
 
 void HumanB::attack() const {
-    std::cout << name + " attacks with their " + w->getType() << std::endl;
+    if (w)
+        std::cout << name + " attacks with their " + w->getType() << std::endl;
 }
 
 HumanB::HumanB(std::string name): name(name) {}

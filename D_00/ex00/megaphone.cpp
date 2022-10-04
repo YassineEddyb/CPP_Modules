@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
       while(argv[++i])
       {
          if (argv[i + 1])
-            std::cout << str_toupper(argv[i]) + " ";
+            std::cout << str_toupper(argv[i]);
          else
             std::cout << str_toupper(argv[i]);
       }
