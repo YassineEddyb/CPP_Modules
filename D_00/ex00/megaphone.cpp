@@ -2,7 +2,7 @@
 
 char my_toupper(char ch)
 {
-    return static_cast<char>(std::toupper(static_cast<unsigned char>(ch)));
+   return static_cast<char>(std::toupper(static_cast<unsigned char>(ch)));
 }
 
 std::string str_toupper(char *str)
