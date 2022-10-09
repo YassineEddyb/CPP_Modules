@@ -32,8 +32,10 @@ int main(int argc, char **argv) {
             }
 
             ofs.open("newFile.txt", std::ofstream::out | std::ofstream::trunc);
-            if (!ofs)
+            if (!ofs) {
                 std::cerr << "Error: opening file" << std::endl;
+                return 1;
+            }
             ofs << buffer;
             ofs.close();
         }
