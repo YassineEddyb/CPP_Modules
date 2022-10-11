@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yed-dyb <yed-dyb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 09:55:47 by yed-dyb           #+#    #+#             */
-/*   Updated: 2022/09/21 10:23:16 by yed-dyb          ###   ########.fr       */
+/*   Updated: 2022/10/11 10:40:07 by yed-dyb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class Zombie {
     private:
         std::string name;
-    public: 
-        void setName(std::string name);
+    public:
+        Zombie(std::string name);
         void announce(void) const;
         ~Zombie();
 };

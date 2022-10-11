@@ -1,16 +1,34 @@
 #include <fstream>
 #include <iostream>
 
+std::string ft_replace(std::string buffer, std::string s1, std::string s2) {
+    std::string str = buffer;
+    int len = 0;
+
+    size_t index = buffer.find(s1);
+    while(index < buffer.length()) {
+        buffer.erase(index, s1.length());
+        str.erase(index + (len * s2.length()), s1.length());
+        str.insert(index + (len * s2.length()), s2);
+        index = buffer.find(s1);
+        len++;
+    }
+
+    return str;
+}
+
 int main(int argc, char **argv) {
-    std::fstream ifs;
-    std::fstream ofs;
+    std::ifstream ifs;
+    std::ofstream ofs;
     std::string line;
     std::string buffer = "";
 
     if (argc == 4) {
+        std::string filename = argv[1];
         std::string s1 = argv[2];
         std::string s2 = argv[3];
-        ifs.open(argv[1]);
+    
+        ifs.open(filename);
         if (!ifs) {
             std::cerr << "Error: opening file" << std::endl;
             return 1;
@@ -24,14 +42,9 @@ int main(int argc, char **argv) {
         }
 
         if (s1.length() > 0) {
-            size_t index = buffer.find(s1);
-            while(index < buffer.length()) {
-                buffer.erase(index, s1.length());
-                buffer.insert(index, s2);
-                index = buffer.find(s1);
-            }
+            buffer = ft_replace(buffer, s1, s2);
 
-            ofs.open("newFile.txt", std::ofstream::out | std::ofstream::trunc);
+            ofs.open(filename + ".replace", std::ofstream::out | std::ofstream::trunc);
             if (!ofs) {
                 std::cerr << "Error: opening file" << std::endl;
                 return 1;
