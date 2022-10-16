@@ -1,14 +1,14 @@
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = c++
-NAME = zombie
+NAME = bsp
 
 all: $(NAME)
 
 $(NAME): $(SRC)
 	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
 
-clean :
+clean:
 
 fclean : clean
 	@rm -rf $(NAME)
