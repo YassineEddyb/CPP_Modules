@@ -84,13 +84,13 @@ Fixed Fixed::operator - (const Fixed& f) const {
 
 Fixed Fixed::operator * (const Fixed& f) const {
     Fixed res;
-    res.setRawBits((this->fixed_point * f.getRawBits()) / (1 << scaler));
+    res.setRawBits(roundf((this->fixed_point / (1 << scaler)) * f.getRawBits()));
     return res;
 }
 
 Fixed Fixed::operator / (const Fixed& f) const {
     Fixed res;
-    res.setRawBits((this->fixed_point / f.getRawBits()) * (1 << scaler));
+    res.setRawBits(roundf((this->fixed_point * (1 << scaler)) / f.fixed_point));
     return res;
 }
 

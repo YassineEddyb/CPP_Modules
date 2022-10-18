@@ -74,7 +74,6 @@ bool Fixed::operator != (const Fixed& f) const {
     return (this->fixed_point != f.getRawBits());
 }
 
-
 // arithmetic operator overloading
 Fixed Fixed::operator + (const Fixed& f) const {
     Fixed res;
