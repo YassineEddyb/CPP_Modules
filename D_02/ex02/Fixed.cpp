@@ -125,12 +125,12 @@ Fixed Fixed::operator -- (int) {
 }
 
 // max/min member functions
-Fixed& Fixed::min (Fixed& a, Fixed& b) {
-    if (a.getRawBits() > b.getRawBits())
-        return b;
-    else 
-        return a;
-}
+// Fixed& Fixed::min (Fixed& a, Fixed& b) {
+//     if (a.getRawBits() > b.getRawBits())
+//         return b;
+//     else 
+//         return a;
+// }
 
 const Fixed& Fixed::min (const Fixed& a, const Fixed& b) {
     if (a.getRawBits() > b.getRawBits())
@@ -139,12 +139,12 @@ const Fixed& Fixed::min (const Fixed& a, const Fixed& b) {
         return a;
 }
 
-Fixed& Fixed::max (Fixed& a, Fixed& b) {
-    if (a.getRawBits() > b.getRawBits())
-        return a;
-    else 
-        return b;
-}
+// Fixed& Fixed::max (Fixed& a, Fixed& b) {
+//     if (a.getRawBits() > b.getRawBits())
+//         return a;
+//     else 
+//         return b;
+// }
 
 const Fixed& Fixed::max (const Fixed& a, const Fixed& b) {
     if (a.getRawBits() > b.getRawBits())

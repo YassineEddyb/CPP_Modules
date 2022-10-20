@@ -1,10 +1,11 @@
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
-    ClapTrap c("a");
+    FragTrap c("a");
 
     c.attack("b");
     c.takeDamage(10);
     c.beRepaired(5);
+    c.highFivesGuys();
     c.printData();
 }
