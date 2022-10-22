@@ -1,7 +1,7 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap() {
-    _name = "default";
+    _name = "FragTrap";
     _hit_points = 100;
     _energy_points = 100;
     _attack_damage = 30;

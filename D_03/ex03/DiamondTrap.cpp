@@ -1,7 +1,8 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() {
-    this->_name = "default " + ClapTrap::_name;
+    _name = "DiamondTrap";
+    ClapTrap::_name = _name + "_clap_name";
     _hit_points = ClapTrap::_hit_points;
     _energy_points = ScavTrap::_energy_points;
     _attack_damage = FragTrap::_attack_damage;
@@ -9,7 +10,8 @@ DiamondTrap::DiamondTrap() {
 }
 
 DiamondTrap::DiamondTrap(std::string name) {
-    this->_name = name + " " + ClapTrap::_name;
+    _name = name;
+    ClapTrap::_name = name + "_clap_name";
     _hit_points = FragTrap::_hit_points;
     _energy_points = ScavTrap::_energy_points;
     _attack_damage = FragTrap::_attack_damage;
@@ -20,7 +22,8 @@ DiamondTrap::DiamondTrap(const DiamondTrap& obj) {
     *this = obj;
 }
 
-DiamondTrap& DiamondTrap::operator = (const DiamondTrap& obj) {
+DiamondTrap& DiamondTrap::operator = (const DiamondTrap& obj)
+{
     _name = obj._name;
     _hit_points = obj._hit_points;
     _energy_points = obj._energy_points;
@@ -29,7 +32,7 @@ DiamondTrap& DiamondTrap::operator = (const DiamondTrap& obj) {
 }
 
 void DiamondTrap::whoAmI() {
-    std::cout << this->_name << std::endl;
+    std::cout << "my name is: "<< _name <<" and my granpa's name is : "<< ClapTrap::_name << std::endl;
 };
 
 DiamondTrap::~DiamondTrap() {

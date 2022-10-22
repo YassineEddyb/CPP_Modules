@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() {
-    _name = "default";
+    _name = "ScavTrap";
     _hit_points = 100;
     _energy_points = 50;
     _attack_damage = 20;
@@ -10,7 +10,7 @@ ScavTrap::ScavTrap() {
 
 ScavTrap::ScavTrap(std::string name) {
     _name = name;
-    _hit_points = 100;
+    ClapTrap::_hit_points = 100;
     _energy_points = 50;
     _attack_damage = 20;
     std::cout << "ScavTrap constructor called" << std::endl;
