@@ -14,7 +14,6 @@ ClapTrap::ClapTrap(std::string name) {
     _energy_points = 10;
     _attack_damage = 0;
     std::cout << "ClapTrap Constructor Called" << std::endl;
-
 }
 
 ClapTrap::ClapTrap(const ClapTrap& obj) {

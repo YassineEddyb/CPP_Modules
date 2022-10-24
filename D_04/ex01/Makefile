@@ -1,12 +1,12 @@
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+CFLAGS = #-Wall -Wextra -Werror -std=c++98
 CPP = c++
-NAME = Animal
+NAME = Brain
 
 all: $(NAME)
 
 $(NAME): $(SRC)
-	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME) -fsanitize=address
 
 clean:
 

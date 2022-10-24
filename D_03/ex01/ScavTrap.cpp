@@ -10,7 +10,7 @@ ScavTrap::ScavTrap() {
 
 ScavTrap::ScavTrap(std::string name) {
     _name = name;
-    ClapTrap::_hit_points = 100;
+    _hit_points = 100;
     _energy_points = 50;
     _attack_damage = 20;
     std::cout << "ScavTrap constructor called" << std::endl;

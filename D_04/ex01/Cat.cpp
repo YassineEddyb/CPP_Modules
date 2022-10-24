@@ -1,8 +1,10 @@
 #include "Cat.hpp"
 
+
 Cat::Cat() {
     _type = "Cat";
-    std::cout << "Cat Default Constructor Called" << std::endl;
+    _brain = new Brain();
+    std::cout << "Cat Default Constructor Called "<< _brain << std::endl;
 }
 
 Cat::Cat(const Cat& obj) {
@@ -11,13 +13,16 @@ Cat::Cat(const Cat& obj) {
 
 Cat& Cat::operator = (const Cat& obj) {
     _type = obj._type;
+    _brain = obj._brain;
+    std::cout << "Brain copy assingment operator called" << std::endl;
     return *this;
 }
 
 void Cat::makeSound(void) const {
-    std::cout << "meow meow, mew mew" << std::endl;
+    std::cout << "meow meow, mew mew " << _brain<< std::endl;
 }
 
 Cat::~Cat() {
+    delete _brain;
     std::cout << "Cat Destructor called" << std::endl;
 };
