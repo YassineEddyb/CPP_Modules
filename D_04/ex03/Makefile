@@ -1,12 +1,13 @@
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp ICharacter.cpp
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = c++
-NAME = Brain
+NAME = Interface
 
 all: $(NAME)
 
 $(NAME): $(SRC)
 	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
+
 clean:
 
 fclean : clean
