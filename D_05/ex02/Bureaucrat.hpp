@@ -27,6 +27,7 @@ class Bureaucrat {
         void incrementGrade();
         void decrememtGrade();
         void signForm(Form& form) const;
+        void executeForm(Form const &form) const;
 
         // exception classes
         class GradeTooLowException {

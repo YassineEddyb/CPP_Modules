@@ -1,4 +1,4 @@
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = c++
 NAME = Form

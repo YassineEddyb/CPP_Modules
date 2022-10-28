@@ -53,6 +53,10 @@ const char* Form::GradeTooHighException::what() const {
     return "This grade is too High";
 }
 
+const char * Form::FormNotSigned::what() const {
+    return "The Form is not signed or the executor does'nt have the required grade";
+}
+
 Form::~Form() {
     std::cout << "Form Destructor Called" << std::endl;
 }

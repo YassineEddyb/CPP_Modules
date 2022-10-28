@@ -23,11 +23,11 @@ Bureaucrat& Bureaucrat::operator = (const Bureaucrat& obj) {
     return *this;
 }
 
-std::string Bureaucrat::getName () {
+std::string Bureaucrat::getName () const {
     return _name;
 }
 
-int Bureaucrat::getGrade() {
+int Bureaucrat::getGrade() const {
     return _grade;
 }
 
@@ -57,4 +57,11 @@ const char* Bureaucrat::GradeTooHighException::what() const {
 
 Bureaucrat::~Bureaucrat() {
     std::cout << "Bureaucrat Destructor Called" << std::endl;
+}
+
+std::ostream& operator << (std::ostream& out, const Bureaucrat& b) {
+    out << "Name: " << b.getName() << std::endl;
+    out << "Grade: " << b.getGrade();
+
+    return out;
 }

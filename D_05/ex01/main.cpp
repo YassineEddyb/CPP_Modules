@@ -1,41 +1,19 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main () {
-    // High grade constructor
     try {
-        Bureaucrat c("3aziz", 151);
-    } catch (Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    }
+        Bureaucrat b("boo", 2);
+        Form f1("a", true, 4, 100);
+        Form f2("a", true, 1, 100);
 
-    // Low grade constructor
-    try {
-        Bureaucrat c("3aziz", 0);
-    } catch (Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    }
-
-    // Decrement grade
-    try {
-        Bureaucrat c("3aziz", 1);
-        c.incrementGrade();
-    } catch (Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
-    }
-
-    // Increment grade
-    try {
-        Bureaucrat c("3aziz", 150);
-        c.decrememtGrade();
-    } catch (Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    } catch (Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
+        std::cout << b << std::endl;
+        std::cout << f1 << std::endl;
+        b.signForm(f1);
+        b.signForm(f2);
+    } catch (Form::GradeTooHighException& e) {
+        std::cerr << e.what() << std::endl;
+    } catch (Form::GradeTooLowException& e) {
+        std::cerr << e.what() << std::endl;
     }
 }

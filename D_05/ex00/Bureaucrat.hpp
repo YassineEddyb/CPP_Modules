@@ -18,8 +18,8 @@ class Bureaucrat {
         Bureaucrat(std::string name, int grade);
         Bureaucrat& operator = (const Bureaucrat& obj);
 
-        std::string getName ();
-        int getGrade();
+        std::string getName() const;
+        int getGrade() const;
 
         // increment/decrement
         void incrementGrade();
@@ -37,5 +37,7 @@ class Bureaucrat {
 
         ~Bureaucrat();
 };
+
+std::ostream& operator << (std::ostream& out, const Bureaucrat& b);
 
 #endif

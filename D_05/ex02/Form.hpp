@@ -25,6 +25,7 @@ class Form {
         int getExectureGrade() const;
 
         void beSigned(const Bureaucrat& b);
+        virtual void execute(Bureaucrat const & executor) const = 0;
 
         // exception classes
         class GradeTooLowException {
@@ -34,6 +35,11 @@ class Form {
         class GradeTooHighException {
             public:
                 const char* what() const;
+        };
+
+        class FormNotSigned {
+            public:
+                const char * what() const;
         };
 
         ~Form();
