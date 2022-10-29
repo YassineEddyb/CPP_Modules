@@ -7,6 +7,7 @@ all: $(NAME)
 
 $(NAME): $(SRC)
 	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
+
 clean:
 
 fclean : clean

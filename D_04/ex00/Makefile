@@ -1,4 +1,4 @@
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = c++
 NAME = Animal

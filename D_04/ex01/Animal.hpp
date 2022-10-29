@@ -8,6 +8,7 @@ class Animal {
     protected:
         std::string _type;
     public:
+        int x;
         Animal();
         Animal(const Animal& obj);
         Animal& operator = (const Animal& obj);

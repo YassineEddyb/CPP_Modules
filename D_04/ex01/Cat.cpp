@@ -1,6 +1,5 @@
 #include "Cat.hpp"
 
-
 Cat::Cat() {
     _type = "Cat";
     _brain = new Brain();
@@ -8,6 +7,7 @@ Cat::Cat() {
 }
 
 Cat::Cat(const Cat& obj) {
+    _brain = new Brain();
     *this = obj;
 }
 

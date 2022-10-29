@@ -9,7 +9,7 @@ int main () {
             animals[i] = new Cat();
         else 
             animals[i] = new Dog();
-    }
+    };    
 
     for (int i = 0; i < 4; i++)
         animals[i]->makeSound();
