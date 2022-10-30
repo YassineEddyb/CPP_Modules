@@ -6,7 +6,7 @@ NAME = Bureaucrat
 all: $(NAME)
 
 $(NAME): $(SRC)
-	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME) -fsanitize=address
+	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
 
 clean:
 

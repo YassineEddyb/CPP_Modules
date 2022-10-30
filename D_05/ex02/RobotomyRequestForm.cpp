@@ -4,7 +4,9 @@ RobotomyRequestForm::RobotomyRequestForm():
 Form("RobotomyRequestForm", false, 72, 45) {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):
-Form("RobotomyRequestForm", false, 72, 45), _target(target) {}
+Form("RobotomyRequestForm", false, 72, 45) {
+    _target = target;
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& obj):
 Form("RobotomyRequestForm", false, 72, 45) {

@@ -13,6 +13,8 @@ class Form {
         bool _is_signed;
         const int _sign_grade;
         const int _execute_grade;
+    protected:
+        std::string _target;
     public:
         Form();
         Form(const Form& obj);
@@ -28,18 +30,18 @@ class Form {
         virtual void execute(Bureaucrat const & executor) const = 0;
 
         // exception classes
-        class GradeTooLowException {
+        class GradeTooLowException : public std::exception {
             public:
-                const char* what() const;
+                const char* what() const throw();
         };
-        class GradeTooHighException {
+        class GradeTooHighException : public std::exception  {
             public:
-                const char* what() const;
+                const char* what() const throw();
         };
 
-        class FormNotSigned {
+        class FormNotSigned : public std::exception {
             public:
-                const char * what() const;
+                const char * what() const throw();
         };
 
         ~Form();

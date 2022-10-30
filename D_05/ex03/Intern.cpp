@@ -30,10 +30,6 @@ Form* Intern::makeForm(std::string name, std::string target) const {
     return f;
 }
 
-const char* Intern::FormNotFound::what() const {
-    return "This form not found";
-}
-
 Intern::~Intern() {
     std::cout << "Intern Destructor Called" << std::endl;
 }

@@ -7,7 +7,6 @@
 #include <iostream>
 #include <string>
 
-
 class Bureaucrat {
     private:
         const std::string _name;
@@ -26,13 +25,14 @@ class Bureaucrat {
         void decrememtGrade();
 
         // exception classes
-        class GradeTooLowException {
+        class GradeTooLowException : public std::exception {
             public:
-                const char* what() const;
+                const char* what() const throw();
         };
-        class GradeTooHighException {
+
+        class GradeTooHighException : public std::exception {
             public:
-                const char* what() const;
+                const char* what() const throw();
         };
 
         ~Bureaucrat();

@@ -4,26 +4,45 @@
 #include "ShrubberyCreationForm.hpp"
 
 int main () {
-    Bureaucrat b1("Yassine", 1);
-    Bureaucrat b2("3aziz", 150);
-    PresidentialPardonForm f1("f1");
-    RobotomyRequestForm f2("f2");
-    ShrubberyCreationForm f3("f3");
-
-    f1.beSigned(b1);
-    f2.beSigned(b1);
-    f3.beSigned(b1);
-
-    try
     {
+        Bureaucrat b("Yassine", 1);
+
+        PresidentialPardonForm f1("f1");
+        RobotomyRequestForm f2("f2");
+        ShrubberyCreationForm f3("f3");
+
+        try {
+            f1.beSigned(b);
+            f2.beSigned(b);
+            f3.beSigned(b);
+        } catch (std::exception& e) {
+            std::cout << e.what() << std::endl;
+        }
+
+        b.executeForm(f1);
+        b.executeForm(f2);
+        b.executeForm(f3);
+        std::cout << "---------------------------------------------" << std::endl;
+    }
+    std::cout << "---------------------------------------------" << std::endl;
+    {
+        Bureaucrat b("Yassine Nadi", 1);
+        Bureaucrat b1("Yassine L3yan", 100);
+
+        PresidentialPardonForm f1("f1");
+        RobotomyRequestForm f2("f2");
+        ShrubberyCreationForm f3("f3");
+
+        try {
+            f1.beSigned(b);
+            f2.beSigned(b);
+        } catch (std::exception& e) {
+            std::cout << e.what() << std::endl;
+        }
+
         b1.executeForm(f1);
         b1.executeForm(f2);
         b1.executeForm(f3);
-        b2.executeForm(f1);
-        b2.executeForm(f2);
-        b2.executeForm(f3);
-    }
-    catch(const Form::FormNotSigned& e) {
-        std::cerr << e.what() << '\n';
+        std::cout << "---------------------------------------------" << std::endl;
     }
 }

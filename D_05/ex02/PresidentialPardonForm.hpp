@@ -6,8 +6,6 @@
 #include <iostream>
 
 class PresidentialPardonForm : public Form {
-    private:
-        std::string _target;
     public:
         PresidentialPardonForm();
         PresidentialPardonForm(std::string target);

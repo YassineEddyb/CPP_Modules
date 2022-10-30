@@ -13,13 +13,10 @@ class Intern {
         Intern();
         Intern(const Intern& obj);
         Intern& operator = (const Intern& obj);
-        Form* makeForm(std::string name, std::string target) const;
-        ~Intern();
 
-        class FormNotFound {
-            public:
-                const char* what() const;
-        };
+        Form* makeForm(std::string name, std::string target) const;
+
+        ~Intern();
 };
 
 #endif

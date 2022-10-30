@@ -29,13 +29,13 @@ class Bureaucrat {
         void signForm(Form& form) const;
 
         // exception classes
-        class GradeTooLowException {
+        class GradeTooLowException : public std::exception {
             public:
-                const char* what() const;
+                const char* what() const throw();
         };
-        class GradeTooHighException {
+        class GradeTooHighException : public std::exception {
             public:
-                const char* what() const;
+                const char* what() const throw();
         };
 
         ~Bureaucrat();
