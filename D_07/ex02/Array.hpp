@@ -12,18 +12,23 @@ template <typename T> class Array {
             _arr = NULL;
             _size = 0;
         }
+
         Array(unsigned int n) {
             _size = n;
             _arr = new T[_size]();
         }
+
         Array(const Array& obj) {
-            _arr = new T[_size];
+            _arr = new T[obj._size];
             *this = obj;
         }
+
         Array& operator = (const Array& obj) {
-            for(int i = 0; i < _size; i++) {
+            _size = obj._size;
+            for(int i = 0; static_cast<unsigned int>(i) < _size; i++) {
                 _arr[i] = obj._arr[i];
             }
+            return *this;
         }
 
         unsigned int size() const {
@@ -31,13 +36,15 @@ template <typename T> class Array {
         }
 
         T& operator[] (unsigned int index) {
-            if (index >= _size)
+            if (index >= _size || index < 0)
                 throw std::exception();
 
             return _arr[index];
         };
 
-        ~Array() {};
+        ~Array() {
+            delete [] _arr;
+        };
 };
 
 
