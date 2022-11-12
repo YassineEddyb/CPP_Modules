@@ -2,6 +2,7 @@
 
 int main () {
     Span s(5);
+    int arr[5] = {3, 4, 100, 30, -1};
 
     try {
         std::cout << s.longestSpan() << std::endl;
@@ -12,11 +13,7 @@ int main () {
 
     try {
         s.addNumber(6);
-        s.addNumber(1);
-        s.addNumber(2);
-        s.addNumber(9);
-        s.addNumber(20);
-        s.addNumber(8);
+        s.addNumberRange(arr, 5);
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
     }

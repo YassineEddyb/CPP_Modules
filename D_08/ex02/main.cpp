@@ -1,21 +1,19 @@
-// #include "MutantStack.hpp"
+#include "MutantStack.hpp"
 
 #include <iostream>
 
 int main() {
-    // MutantStack<int> int_queue;
+    MutantStack<int> stack;
 
-    // for(int i=0; i<10; ++i)
-    //     int_queue.push(i);
+    for(int i = 0; i < 10; ++i)
+        stack.push(i);
 
-    // // MutantStack::iterator start = 
-    // for()
-    //     std::cout << *it << std::endl;
+    MutantStack<int>::iterator start = stack.begin(); 
+    MutantStack<int>::iterator end = stack.end();
+    while(start != end) {
+        std::cout << *start << std::endl;
+        start++;
+    }
 
-    // return 0;
-
-    int d = 6;
-
-    printf("%p\n", &d);
-    // std::cout << c << std::endl;
+    return 0;
 }

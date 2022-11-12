@@ -16,9 +16,10 @@ class Span {
         int& operator[] (int index);
 
         void addNumber(int num);
-        int size ();
-        int shortestSpan();
-        int longestSpan();
+        void addNumberRange(int* arr, int size);
+        int size() const ;
+        int shortestSpan() const;
+        int longestSpan() const;
 
         class MaxElementExceeded : public std::exception {
             public:

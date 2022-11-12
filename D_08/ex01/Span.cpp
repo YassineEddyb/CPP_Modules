@@ -23,6 +23,10 @@ int& Span::operator[] (int index) {
     return _arr[index];
 }
 
+int Span::size() const{
+    return _index;
+}
+
 void Span::addNumber(int num) {
     if (_index >= _arr.capacity())
         throw Span::MaxElementExceeded();
@@ -30,16 +34,24 @@ void Span::addNumber(int num) {
     _index++;
 }
 
-int Span::longestSpan() {
+void Span::addNumberRange(int *arr, int size) {
+    if (!arr)
+        throw Span::NotEnoughElements();
+    for (int i = 0; i < size; i++) {
+        addNumber(arr[i]);
+    }
+}
+
+int Span::longestSpan() const{
     if (_index <= 1)
         throw Span::NotEnoughElements();
-    int small = *std::min_element(_arr.begin(), _arr.end());
-    int big = *std::max_element(_arr.begin(), _arr.end());
+    int small = *std::min_element(_arr.begin(), _arr.begin() + _index);
+    int big = *std::max_element(_arr.begin(), _arr.begin() + _index);
 
     return (big - small);
 }
 
-int Span::shortestSpan() {
+int Span::shortestSpan() const{
     if (_index <= 1)
         throw Span::NotEnoughElements();
     std::vector<int> sorted_arr = _arr;
@@ -65,5 +77,5 @@ const char* Span::NotEnoughElements::what () const throw() {
 }
 
 Span::~Span() {
-    std::cout << "Span constructor" << std::endl;
+    std::cout << "Span Destructor" << std::endl;
 }

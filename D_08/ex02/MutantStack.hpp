@@ -1,19 +1,31 @@
 #ifndef MUTANTSTACK_HPP
-#define MUTANTSTACK_HHPP
+#define MUTANTSTACK_HPP
 
-#include <queue>
-#include <deque>
+#include <stack>
 #include <iostream>
 
-template<typename T, typename Container=std::deque<T> >
-class MutantStack : public std::queue<T,Container> {
+template <typename T>
+class MutantStack : public std::stack<T> {
     public:
-        typedef typename Container::iterator iterator;
+        typedef typename std::stack<T>::container_type::iterator iterator;
 
-        iterator begin() { return this->c.begin(); }
-        iterator end() { return this->c.end();  }
+        MutantStack() {};
+        MutantStack(const MutantStack& obj) {
+            *this = obj;
+        };
+        MutantStack& operator = (const MutantStack& obj) {
+            (void)obj;
+            return *this;
+        };
+        ~MutantStack() {};
+
+        iterator begin() { 
+            return this->c.begin();
+        }
+        iterator end() {
+            return this->c.end();
+        }
 };
-
 
 
 #endif
