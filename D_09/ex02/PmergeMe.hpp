@@ -2,35 +2,32 @@
 #define PMERGEME_HPP
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include <deque>
 #include <cstdlib>
+#include <algorithm>
+#include <sstream>
 
 class PmergeMe {
-  private:
-    std::vector<int> vec;
-    std::deque<int> dq;
+    private:
+        std::vector<int> vec;
+        std::deque<int> dq;
 
-  public:
-    PmergeMe();
-    PmergeMe& PmergeMe(PmergeMe& obj);
-    PmergeMe(char **argv);
+    public:
+        PmergeMe();
+        PmergeMe(const PmergeMe& obj);
+        PmergeMe& operator = (const PmergeMe& obj);
 
-    // vector
-    void printVector();
-    void mergeSrotVector(int left, int mid, int right);
-    void insertionSortVector(int left, int right);
-    void sortVector(int left, int right, int k);
+        template<typename T> void parse(T &cntr, int argc, char** argv);
+        template<typename T> void sort_pairs(T &cntr);
+        template<typename T> void incerstion_sort(T &cntr);
+        template<typename T> void print_cntr(T &cntr);
 
-    // deque
-    void printDeque();
-    void mergeSrotDeque(int left, int mid, int right);
-    void insertionSortDeque(int left, int right);
-    void sortDeque(int left, int right, int k);
+        void mergeInserstionSortVec(int argc, char **argv);
+        void mergeInserstionSortDq(int argc, char **argv);
 
-
-
-    ~PmergeMe();
+        ~PmergeMe();
 };
 
 #endif

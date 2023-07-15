@@ -1,174 +1,96 @@
 #include "PmergeMe.hpp"
 
-
 PmergeMe::PmergeMe() {}
 
-PmergeMe::PmergeMe(char **argv) {
-	int	i, j;
+PmergeMe::PmergeMe(const PmergeMe& obj) {
+    *this = obj;
+}
 
-	i = 1;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (isdigit(argv[i][j]) == 0) {
-				std::cerr << "Error" << std::endl;
+PmergeMe& PmergeMe::operator = (const PmergeMe& obj) {
+    vec = obj.vec;
+    dq = obj.dq;
+    return *this;
+}
+
+template<typename T>
+void PmergeMe::print_cntr(T &cntr) {
+    size_t size;
+
+    if (cntr.size() > 5) size = 5;
+    else size = cntr.size();
+
+    for(size_t i = 0; i < size; i++) {
+        std::cout << cntr[i] << " ";
+    }
+    if (cntr.size() > 5) std::cout << "[...]";
+
+    std::cout << std::endl;
+}
+
+template<typename T>
+void PmergeMe::parse(T &cntr, int argc, char** argv) {
+    for (int i = 1; i < argc ; i++) {
+        try {
+            std::istringstream iss(argv[i]);
+            int number;
+            iss >> number;
+            if (iss.fail()) {
+                std::cerr << "Error" << std::endl;
                 std::exit(1);
             }
-			j++;
-		}
-		vec.push_back(std::atoi(argv[i]));
-		dq.push_back(std::atoi(argv[i]));
-		i++;
-	}
-}
-
-void PmergeMe::mergeSrotVector(int left, int mid, int right) {
-    int i, j, k;
-    std::vector<int> temp;
-
-    i = left;
-    j = mid + 1;
-
-    while (i <= mid && j <= right) {
-        if (vec[i] <= vec[j]) {
-            temp.push_back(vec[i]);
-            i++;
+            cntr.push_back(number);
+        } catch(std::exception &err) {
+            std::cerr << "Error" << std::endl;
+            std::exit(1);
         }
-        else {
-            temp.push_back(vec[j]);
-            j++;
-        }
-    }
-
-    while (i <= mid) {
-        temp.push_back(vec[i]);
-        i++;
-    }
-
-    while (j <= right) {
-        temp.push_back(vec[j]);
-        j++;
-    }
-
-    k = 0;
-    for (int index = left; index <= right; index++) {
-        vec[index] = temp[k];
-        k++;
-    }
-}
-
-void PmergeMe::insertionSortVector(int left, int right) {
-    for (int i = left + 1; i <= right; i++) {
-        int key = vec[i];
-        int j = i - 1;
-
-        while (j >= left && vec[j] > key) {
-            vec[j + 1] = vec[j];
-            j--;
-        }
-
-        vec[j + 1] = key;
-    }
-}
-
-// 2 3 1 4    // 2
-
-void PmergeMe::sortVector(int left, int right, int k) {
-    if (left < right) {
-        if (right - left <= k) {
-            insertionSortVector(left, right);
-        }
-        else {
-            int mid = (left + right) / 2;
-
-            sortVector(left, mid, k);
-            sortVector(mid + 1, right, k);
-
-            mergeSrotVector(left, mid, right);
+        if (cntr[i - 1] < 0) {
+            std::cerr << "Error" << std::endl;
+            std::exit(1);
         }
     }
 }
 
-void PmergeMe::printVector() {
-  for (size_t i = 0; i < vec.size(); i++) {
-    std::cout << vec[i] << " ";
-  }
-  std::cout << std::endl;
-}
-
-void PmergeMe::mergeSrotDeque(int left, int mid, int right) {
-    int i, j, k;
-    std::deque<int> temp;
-
-    i = left;
-    j = mid + 1;
-
-    while (i <= mid && j <= right) {
-        if (dq[i] <= dq[j]) {
-            temp.push_back(dq[i]);
-            i++;
-        }
-        else {
-            temp.push_back(dq[j]);
-            j++;
-        }
-    }
-
-    while (i <= mid) {
-        temp.push_back(dq[i]);
-        i++;
-    }
-
-    while (j <= right) {
-        temp.push_back(dq[j]);
-        j++;
-    }
-
-    k = left;
-    while (!temp.empty()) {
-        dq[k] = temp.front();
-        temp.pop_front();
-        k++;
-    }
-}
-
-void PmergeMe::insertionSortDeque(int left, int right) {
-    for (int i = left + 1; i <= right; i++) {
-        int key = dq[i];
-        int j = i - 1;
-
-        while (j >= left && dq[j] > key) {
-            dq[j + 1] = dq[j];
-            j--;
-        }
-
-        dq[j + 1] = key;
-    }
-}
-
-void PmergeMe::sortDeque(int left, int right, int k) {
-    if (left < right) {
-        if (right - left <= k) {
-            insertionSortDeque(left, right);
-        }
-        else {
-            int mid = (left + right) / 2;
-
-            sortDeque(left, mid, k);
-            sortDeque(mid + 1, right, k);
-
-            mergeSrotDeque(left, mid, right);
+template<typename T>
+void PmergeMe::sort_pairs(T &cntr) {
+    for(size_t i = 0; i < cntr.size() && i + 2 < cntr.size(); i += 2) {
+        if (cntr[i] > cntr[i + 1]) {
+            int temp = cntr[i];
+            cntr[i] = cntr[i + 1];
+            cntr[i + 1] = temp;
         }
     }
 }
 
-void PmergeMe::printDeque() {
-  for (size_t i = 0; i < dq.size(); i++) {
-    std::cout << dq[i] << " ";
-  }
-  std::cout << std::endl;
+template<typename T>
+void PmergeMe::incerstion_sort(T &cntr) {
+    T temp;
+
+    for(size_t i = 0; i < cntr.size(); i += 2) {
+        temp.push_back(cntr[i]);
+    }
+    std::sort(temp.begin(), temp.end());
+
+    for(size_t i = 1; i < cntr.size(); i += 2) {
+        temp.insert(std::upper_bound(temp.begin(), temp.end(), cntr[i]), cntr[i]);
+    }
+
+    cntr = temp;
+}
+
+void PmergeMe::mergeInserstionSortVec(int argc, char **argv) {
+    parse(vec, argc, argv);
+    std::cout << "Before: ";
+    print_cntr(vec);
+    sort_pairs(vec);
+    incerstion_sort(vec);
+    std::cout << "After:  ";
+    print_cntr(vec);
+}
+
+void PmergeMe::mergeInserstionSortDq(int argc, char **argv) {
+    parse(dq, argc, argv);
+    sort_pairs(dq);
+    incerstion_sort(dq);
 }
 
 PmergeMe::~PmergeMe() {}

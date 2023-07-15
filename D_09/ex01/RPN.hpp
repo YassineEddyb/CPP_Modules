@@ -8,14 +8,16 @@
 
 
 class RPN {
-  private:
-    std::stack<int> rpn;
-  public:
-    RPN();
+    private:
+        std::stack<int> rpn;
+    public:
+        RPN();
+        RPN(const RPN &obj);
+        RPN& operator = (const RPN &obj);
 
-    void calcuate(std::string input);
+        void calcuate(std::string input);
 
-    ~RPN();
+        ~RPN();
 };
 
 

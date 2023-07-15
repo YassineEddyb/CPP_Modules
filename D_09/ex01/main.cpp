@@ -1,13 +1,13 @@
 #include "RPN.hpp"
 
 int main (int argc, char **argv) {
-  RPN rpn;
+    RPN rpn;
 
-  if (argc != 2) {
-    std::cout << "Error: bad argument" << std::endl;
-    return 1;
-  }
+    if (argc != 2) {
+        std::cout << "Error: bad arguments" << std::endl;
+        return 1;
+    }
 
-  rpn.calcuate(argv[1]);
-  return 0;
+    rpn.calcuate(argv[1]);
+    return 0;
 }
